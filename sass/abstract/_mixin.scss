@@ -12,3 +12,43 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* 
+media query
+ 0 - 600 phone
+ 600 -900 tablet
+ 900 -1200 tablet
+ 1200 -1800 --- computer normal
+ 1800 + computer
+phone
+tab-port
+tab-land
+
+ORDER
+base + typography > genrel layout > page layout> component
+
+bid-desk
+ */
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desk {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
